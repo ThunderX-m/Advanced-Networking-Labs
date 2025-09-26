@@ -19,16 +19,35 @@ def firstNetwork():
 
     info( '*** Adding hosts\n' )
     PC1 = net.addHost( 'PC1')
+    PC2 = net.addHost( 'PC2' )
+    PC3 = net.addHost( 'PC3' )
+    PC4 = net.addHost( 'PC4' )
     
     info( '*** Adding switch\n' )
     s14 = net.addSwitch( 's14' )
+    s24 = net.addSwitch( 's24' )
+    s34 = net.addSwitch( 's34' )
     
     info( '*** Creating links\n' )
     net.addLink( PC1, s14 )
-    
+    net.addLink( PC4, s14 )
+
+    net.addLink( PC2, s24 )
+    net.addLink( PC4, s24 )
+
+    net.addLink( PC3, s34 )
+    net.addLink( PC4, s34 )
+
+    PC4.cmd('ip addr add 10.10.20.4/24 dev PC4-eth1')
+    PC4.cmd('ip addr add 10.10.30.4/24 dev PC4-eth2')
+    PC4.cmd('echo 1 > /proc/sys/net/ipv4/ip_forward')
+
     info( '*** Starting network\n')
     net.start()
-
+    PC1.cmd('ip route add default via 10.10.10.4')
+    PC2.cmd('ip route add default via 10.10.20.4')
+    PC3.cmd('ip route add default via 10.10.30.4')
+    
     "This is used to run commands on the hosts"
 
     info( '*** Starting terminals on hosts\n' )
