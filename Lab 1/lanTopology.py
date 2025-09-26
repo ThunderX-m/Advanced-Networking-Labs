@@ -38,17 +38,8 @@ def firstNetwork():
     net.addLink( PC3, s34 )
     net.addLink( PC4, s34 )
 
-    PC4.cmd('ip addr add 10.10.10.4/24 dev PC4-eth0')
-    PC4.cmd('ip addr add 10.10.20.4/24 dev PC4-eth1')
-    PC4.cmd('ip addr add 10.10.30.4/24 dev PC4-eth2')
-    
-    PC1.cmd('ip route add default via 10.10.10.4')
-    PC2.cmd('ip route add default via 10.10.20.4')
-    PC3.cmd('ip route add default via 10.10.30.4')
-
     info( '*** Starting network\n')
     net.start()
-
 
     "This is used to run commands on the hosts"
 
