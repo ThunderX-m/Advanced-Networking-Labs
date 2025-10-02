@@ -32,7 +32,7 @@ def firstNetwork():
     net.addLink( PC1, s14 )
     net.addLink( PC2, s24 )
     net.addLink( PC3, s34 )
-    net.addLink( PC1, s14 )
+    net.addLink( PC4, s14 )
     net.addLink( PC4, s24 )
     net.addLink( PC4, s34 )
     
