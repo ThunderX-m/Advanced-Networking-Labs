@@ -44,10 +44,8 @@ def firstNetwork():
 
     info( '*** Starting network\n')
     net.start()
-    PC1.cmd('ip route add default via 10.10.10.4')
-    PC2.cmd('ip route add default via 10.10.20.4')
-    PC3.cmd('ip route add default via 10.10.30.4')
 
+   
     "This is used to run commands on the hosts"
 
     info( '*** Starting terminals on hosts\n' )
@@ -94,14 +92,13 @@ def firstNetwork():
 
     info( '*** Running the command line interface\n' )
     CLI( net )
-
+	
     info( '*** Closing the terminals on the hosts\n' )
     PC1.cmd("killall xterm")
     PC2.cmd("killall xterm")
     PC3.cmd("killall xterm")
     PC4.cmd("killall xterm")
-
-
+	
     info( '*** Stopping network' )
     net.stop()
 
