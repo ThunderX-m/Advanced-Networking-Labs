@@ -39,11 +39,10 @@ def firstNetwork():
     net.addLink( PC3, s34 )
     net.addLink( PC4, s34 )
 
-    PC4.cmd('ip addr add 10.10.20.4/24 dev PC4-eth1')
-    PC4.cmd('ip addr add 10.10.30.4/24 dev PC4-eth2')
-
     info( '*** Starting network\n')
     net.start()
+    PC4.cmd('ip addr add 10.10.20.4/24 dev PC4-eth1')
+    PC4.cmd('ip addr add 10.10.30.4/24 dev PC4-eth2')
 
    
     "This is used to run commands on the hosts"
