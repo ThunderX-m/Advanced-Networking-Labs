@@ -15,6 +15,7 @@ def starNetwork(N):
         switch = net.addSwitch( f's{i}' )
         net.addLink( host, switch )
         net.addLink( router, switch )
+        net.cmd('pingall')
         host.cmd('ip route add default via 10.10.10.1')
 
     router.cmd('echo 1 > /proc/sys/net/ipv4/ip_forward')
