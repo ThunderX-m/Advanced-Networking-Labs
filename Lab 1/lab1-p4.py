@@ -54,7 +54,10 @@ def firstNetwork():
     PC4.cmd('./mitmConfig.sh')
 
     PC4.cmd('iptables -t nat -j DNAT -p icmp -A PREROUTING -s 10.10.20.2 -d 10.10.10.1 --to-destination 10.10.30.3')
-
+    PC3.cmd('iptables -t nat -A PREROUTING -p icmp -s 10.10.20.2 -d 10.10.30.3 -j DNAT --to-destination 10.10.10.1')
+    PC3.cmd('iptables -t nat -A POSTROUTING -p icmp -o PC3-eth0 -s 10.10.20.2 -j MASQUERADE')
+    PC4.cmd('iptables -t nat -A POSTROUTING -o PC4-eth0 -s 10.10.30.3 -d 10.10.10.1 -j SNAT --to-source 10.10.20.2')
+    
     "This is used to run commands on the hosts"
 
     info( '*** Starting terminals on hosts\n' )
