@@ -18,10 +18,10 @@ def firstNetwork():
     net.addController( 'c0' )
 
     info( '*** Adding hosts\n' )
-    PC1 = net.addHost( 'PC1', ip='10.10.10.1/24', ipv6='fd24:ec43:12ca:c001:10::1/80')
-    PC2 = net.addHost( 'PC2', ip='10.10.20.2/24', ipv6='fd24:ec43:12ca:c001:20::2/80')
-    PC3 = net.addHost( 'PC3', ip='10.10.30.3/24', ipv6='fd24:ec43:12ca:c001:30::3/80')
-    PC4 = net.addHost( 'PC4', ip='10.10.10.4/24', ipv6='fd24:ec43:12ca:c001:10::4/80')
+    PC1 = net.addHost( 'PC1', ip='10.10.10.1/24')
+    PC2 = net.addHost( 'PC2', ip='10.10.20.2/24')
+    PC3 = net.addHost( 'PC3', ip='10.10.30.3/24')
+    PC4 = net.addHost( 'PC4', ip='10.10.10.4/24')
 
 
     info( '*** Adding switch\n' )
@@ -44,9 +44,20 @@ def firstNetwork():
     PC4.cmd('echo 1 > /proc/sys/net/ipv4/ip_forward')
     PC4.cmd('ip addr add 10.10.20.4/24 dev PC4-eth1')
     PC4.cmd('ip addr add 10.10.30.4/24 dev PC4-eth2')
-    PC4.cmd('ip addr add fd24:ec43:12ca:c001:20::4/80 dev PC4-eth1')
-    PC4.cmd('ip addr add fd24:ec43:12ca:c001:30::4/80 dev PC4-eth2')
+    
+    PC4.cmd('ip -6 addr flush dev PC4-eth0')
+    PC4.cmd('ip -6 addr flush dev PC4-eth1')
+    PC4.cmd('ip -6 addr flush dev PC4-eth2')
+    PC1.cmd('ip -6 addr flush dev PC1-eth0')
+    PC2.cmd('ip -6 addr flush dev PC2-eth0')
+    PC3.cmd('ip -6 addr flush dev PC3-eth0')
 
+    PC1.cmd('ip -6 addr add fd24:ec43:12ca:c001:10::1/80 dev PC1-eth0')
+    PC2.cmd('ip -6 addr add fd24:ec43:12ca:c001:20::2/80 dev PC2-eth0')
+    PC3.cmd('ip -6 addr add fd24:ec43:12ca:c001:30::3/80 dev PC3-eth0')
+    PC4.cmd('ip -6 addr add fd24:ec43:12ca:c001:10::4/80 dev PC4-eth0')
+    PC4.cmd('ip -6 addr add fd24:ec43:12ca:c001:20::4/80 dev PC4-eth1')
+    PC4.cmd('ip -6 addr add fd24:ec43:12ca:c001:30::4/80 dev PC4-eth2')
    
     "This is used to run commands on the hosts"
 
