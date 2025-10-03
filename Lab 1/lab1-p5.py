@@ -20,6 +20,8 @@ def starNetwork(N):
     router.cmd('echo 1 > /proc/sys/net/ipv4/ip_forward')
     net.start()
 
+    CLI( net )
+
 if __name__ == '__main__':
     setLogLevel( 'info' )
     starNetwork(10)
