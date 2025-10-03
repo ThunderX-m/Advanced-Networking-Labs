@@ -49,6 +49,8 @@ def firstNetwork():
     PC2.cmd('ip route add default via 10.10.20.4')
     PC3.cmd('ip route add default via 10.10.30.4')
 
+    PC3.cmd('echo 1 > /proc/sys/net/ipv4/ip_forward')
+
     "This is used to run commands on the hosts"
 
     info( '*** Starting terminals on hosts\n' )
