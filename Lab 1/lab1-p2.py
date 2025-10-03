@@ -43,13 +43,28 @@ def firstNetwork():
     PC4.cmd('ip addr add 10.10.30.4/24 dev PC4-eth2')
     PC4.cmd('echo 1 > /proc/sys/net/ipv4/ip_forward')
 
+    PC4.cmd('ip -6 addr flush dev PC4-eth0')
+    PC4.cmd('ip -6 addr flush dev PC4-eth1')
+    PC4.cmd('ip -6 addr flush dev PC4-eth2')
+    PC1.cmd('ip -6 addr flush dev PC1-eth0')
+    PC2.cmd('ip -6 addr flush dev PC2-eth0')
+    PC3.cmd('ip -6 addr flush dev PC3-eth0')
+
+    PC1.cmd('ip -6 addr add fd24:ec43:12ca:c001:10::1/80 dev PC1-eth0')
+    PC2.cmd('ip -6 addr add fd24:ec43:12ca:c001:20::2/80 dev PC2-eth0')
+    PC3.cmd('ip -6 addr add fd24:ec43:12ca:c001:30::3/80 dev PC3-eth0')
+    PC4.cmd('ip -6 addr add fd24:ec43:12ca:c001:10::4/80 dev PC4-eth0')
+    PC4.cmd('ip -6 addr add fd24:ec43:12ca:c001:20::4/80 dev PC4-eth1')
+    PC4.cmd('ip -6 addr add fd24:ec43:12ca:c001:30::4/80 dev PC4-eth2')
+
     info( '*** Starting network\n')
     net.start()
     PC1.cmd('ip route add default via 10.10.10.4')
     PC2.cmd('ip route add default via 10.10.20.4')
     PC3.cmd('ip route add default via 10.10.30.4')
-
-    PC3.cmd('echo 1 > /proc/sys/net/ipv4/ip_forward')
+    PC1.cmd('ip -6 route add default via fd24:ec43:12ca:c001:10::4')
+    PC2.cmd('ip -6 route add default via fd24:ec43:12ca:c001:20::4')
+    PC3.cmd('ip -6 route add default via fd24:ec43:12ca:c001:30::4')
 
     "This is used to run commands on the hosts"
 
