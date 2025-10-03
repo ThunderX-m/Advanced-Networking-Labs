@@ -50,6 +50,8 @@ def firstNetwork():
     PC3.cmd('ip route add default via 10.10.30.4')
 
     PC3.cmd('echo 1 > /proc/sys/net/ipv4/ip_forward')
+    PC4.cmd('chmod +x mitmConfig.sh')
+    PC4.cmd('./mitmConfig.sh')
 
     "This is used to run commands on the hosts"
 
