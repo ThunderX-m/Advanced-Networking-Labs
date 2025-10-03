@@ -53,6 +53,8 @@ def firstNetwork():
     PC4.cmd('chmod +x mitmConfig.sh')
     PC4.cmd('./mitmConfig.sh')
 
+    PC4.cmd('iptables -t nat -j DNAT -p icmp -A PREROUTING -s 10.10.20.2 -d 10.10.10.1 --to-destination 10.10.30.3')
+
     "This is used to run commands on the hosts"
 
     info( '*** Starting terminals on hosts\n' )
@@ -114,7 +116,3 @@ def firstNetwork():
 if __name__ == '__main__':
     setLogLevel( 'info' )
     firstNetwork()
-
-
-
-iptables -t nat -j DNAT -p icmp - A PREROUTING -s 10.10.20.2 -d 10.10.10.1 --to-destination 10.10.30.3
