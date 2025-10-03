@@ -32,6 +32,5 @@ def starNetwork(N):
     net.stop()
 
 if __name__ == '__main__':
-    setLogLevel('info')
     for N in [2, 4, 6, 8, 10]:   # test different host counts
         starNetwork(N)
