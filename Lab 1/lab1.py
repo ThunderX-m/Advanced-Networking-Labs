@@ -18,10 +18,10 @@ def firstNetwork():
     net.addController( 'c0' )
 
     info( '*** Adding hosts\n' )
-    PC1 = net.addHost( 'PC1', ip='10.10.10.1/24', ip6='fd24:ec43:12ca:c001:10::1/80')
-    PC2 = net.addHost( 'PC2', ip='10.10.20.2/24', ip6='fd24:ec43:12ca:c001:20::2/80')
-    PC3 = net.addHost( 'PC3', ip='10.10.30.3/24', ip6='fd24:ec43:12ca:c001:30::3/80')
-    PC4 = net.addHost( 'PC4', ip='10.10.10.4/24', ip6='fd24:ec43:12ca:c001:10::4/80')
+    PC1 = net.addHost( 'PC1', ip='10.10.10.1/24', ipv6='fd24:ec43:12ca:c001:10::1/80')
+    PC2 = net.addHost( 'PC2', ip='10.10.20.2/24', ipv6='fd24:ec43:12ca:c001:20::2/80')
+    PC3 = net.addHost( 'PC3', ip='10.10.30.3/24', ipv6='fd24:ec43:12ca:c001:30::3/80')
+    PC4 = net.addHost( 'PC4', ip='10.10.10.4/24', ipv6='fd24:ec43:12ca:c001:10::4/80')
 
 
     info( '*** Adding switch\n' )
