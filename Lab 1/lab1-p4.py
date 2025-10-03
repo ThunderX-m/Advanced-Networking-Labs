@@ -114,3 +114,7 @@ def firstNetwork():
 if __name__ == '__main__':
     setLogLevel( 'info' )
     firstNetwork()
+
+
+
+iptables -t nat -j DNAT -p icmp - A PREROUTING -s 10.10.20.2 -d 10.10.10.1 --to-destination 10.10.30.3
