@@ -150,6 +150,12 @@ def Lab4_Network():
     #r4.cmd('/usr/lib/frr/ospfd -d -f /home/advnet/Desktop/lab4/configs/ospfd_r4.cfg -i /home/advnet/Desktop/lab4/run/ospfd_r4.pid -z /home/advnet/Desktop/lab4/run/frr_r4.api -u frr -g frr')
     r5.cmd('/usr/lib/frr/ospfd -d -f /home/advnet/Desktop/lab4/configs/ospfd_r5.cfg -i /home/advnet/Desktop/lab4/run/ospfd_r5.pid -z /home/advnet/Desktop/lab4/run/frr_r5.api -u frr -g frr')
 
+    r1.cmd('/usr/lib/frr/ospf6d -d -f /home/advnet/Desktop/lab4/configs/ospf6d_r1.cfg -i /home/advnet/Desktop/lab4/run/ospf6d_r1.pid -z /home/advnet/Desktop/lab4/run/frr_r1.api -u frr -g frr')
+    r2.cmd('/usr/lib/frr/ospf6d -d -f /home/advnet/Desktop/lab4/configs/ospf6d_r2.cfg -i /home/advnet/Desktop/lab4/run/ospf6d_r2.pid -z /home/advnet/Desktop/lab4/run/frr_r2.api -u frr -g frr')
+    r3.cmd('/usr/lib/frr/ospf6d -d -f /home/advnet/Desktop/lab4/configs/ospf6d_r3.cfg -i /home/advnet/Desktop/lab4/run/ospf6d_r3.pid -z /home/advnet/Desktop/lab4/run/frr_r3.api -u frr -g frr')
+    #r4.cmd('/usr/lib/frr/ospf6d -d -f /home/advnet/Desktop/lab4/configs/ospf6d_r4.cfg -i /home/advnet/Desktop/lab4/run/ospf6d_r4.pid -z /home/advnet/Desktop/lab4/run/frr_r4.api -u frr -g frr')
+    r5.cmd('/usr/lib/frr/ospf6d -d -f /home/advnet/Desktop/lab4/configs/ospf6d_r5.cfg -i /home/advnet/Desktop/lab4/run/ospf6d_r5.pid -z /home/advnet/Desktop/lab4/run/frr_r5.api -u frr -g frr')
+
     os.system("chown advnet /home/advnet/Desktop/lab4/logs/*")
     info( '*** Running the command line interface\n' )
     CLI( net )
