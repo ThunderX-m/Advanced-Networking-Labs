@@ -137,6 +137,7 @@ def Lab4_Network():
     r5.cmd('sysctl -w net.ipv4.conf.r5-eth2.rp_filter=0')
     r5.cmd('sysctl -w net.ipv4.conf.r5-eth3.rp_filter=0')
 
+    r1.cmd(' /usr/lib/frr/zebra -d -f /home/advnet/Desktop/lab4/configs/zebra_r1.cfg -i /home/advnet/Desktop/lab4/run/zebra_r1.pid -z /home/advnet/Desktop/lab4/run/frr_r1.api -u frr -g frr')
 
 
     os.system("chown advnet /home/advnet/Desktop/lab4/logs/*")
