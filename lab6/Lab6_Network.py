@@ -19,9 +19,9 @@ def Lab6_Network():
 	# In order to enable (disable) daemons on router, set the corresponding elements to 1 (0, resp.):
 	#                        r1    r2    r3    r4    r5
 	daemons = [[1,     1,     1,     1,    1],     # zebra
-               [1,     1,     1,     1,    1],     # bgpd
-               [0,     0,     0,     0,    0],     # ospfd
-               [0,     0,     0,     0,    0]]     # ospf6d
+               [1,     1,     1,     1,    0],     # bgpd
+               [0,     0,     1,     1,    1],     # ospfd
+               [0,     0,     1,     1,    1]]     # ospf6d
 
 	"Create an empty network and add nodes to it."
 	net = Mininet()
