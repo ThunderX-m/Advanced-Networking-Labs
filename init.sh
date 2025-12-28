@@ -1,3 +1,4 @@
+sudo mn -c
 sudo ~/lab6_script.sh
 sudo mkdir /home/advnet/Desktop/lab6/logs
 sudo chmod 777 /home/advnet/Desktop/lab6/logs
